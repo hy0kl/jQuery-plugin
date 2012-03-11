@@ -18,6 +18,7 @@
             if (1 == i % 2)
             {
                 node.addClass(defaults.evenClass);
+            }
             else
             {
                 node.addClass(defaults.oddClass);
