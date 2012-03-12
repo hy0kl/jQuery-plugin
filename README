@@ -1,9 +1,45 @@
 jQuery plugin
 
 example:
-
+1. main html file: test.jQuery-plugin.html
+<html>
+<head>
+<title>jQuery stripe plugin</title>
+<script type="text/javascript" src="/statics/js/jquery.js"></script>
+<script type="text/javascript" src="/statics/js/jquery.stripe.js"></script>
+<link rel="stylesheet" type="text/css" href="/statics/css/stripe.css" />
 <script type="text/javascript">
 $(document).ready(function(){
     $('.stripe').stripe();
 });
 </script>
+</head>
+<body>
+<div class="stripe">test</div>
+<div class="stripe">test</div>
+<div class="stripe">test</div>
+<div class="stripe">test</div>
+<div class="stripe">test</div>
+<div class="stripe">test</div>
+<div class="stripe">test</div>
+<div class="stripe">test</div>
+</body>
+</html>
+
+2. css file: stripe.css
+.evenNode{
+    background: #c8ecf8;
+}
+.oddNode{
+    background: white;
+}
+.activeNode{
+    background: #e9f8ed;
+}
+.stripe{
+    height: 100px;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 2px 2px 5px #000000;
+    margin: 1em;
+    padding: 1em;
+}
