@@ -1,2 +1,9 @@
 jQuery plugin
 
+example:
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.stripe').stripe();
+});
+</script>
