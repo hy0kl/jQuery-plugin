@@ -1,3 +1,9 @@
+/**
+ * stripe 0.1
+ * jQuery plugin
+ * @author: hy0kle@gmail.com
+ * @date: 2012.03
+ */
 (function($){
     $.fn.stripe = function(settings) {
         var defaults = {
