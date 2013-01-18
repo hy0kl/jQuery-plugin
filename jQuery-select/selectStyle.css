@@ -1,0 +1,19 @@
+@charset "utf-8";
+.dropdown {outline:none;display:inline-block;*display:inline;}
+.dropdown h4{cursor:default; text-indent:5px; margin:0; padding:0;}
+.dropdown * {-moz-user-select:none;}
+.dropdown h4.over {}
+.dropdown div {display:block; /*fix bug*/}
+.dropdown ul{position:absolute;display:none;margin:0;padding:0;float:left;clear:both;}
+.dropdown ul li{text-indent:5px;margin:0;padding:0;list-style:none;display:block;cursor:default;}
+.dropdown ul li.over{}
+.dropselectbox {display:inline;}
+/* write you style here */
+.dropselectbox {background:#DDD url(selectBg.png) repeat-x left top;}
+.dropdown h4{height:21px; font:12px/21px Arial, Helvetica, sans-serif; border:solid 1px #AAA;background:url(droparrow.gif) no-repeat right center;}
+.dropdown h4.over{border-color:#369; background-image:url(droparrowover.gif);}
+.dropdown h4.current{border-color:#003;}
+.dropdown ul{border:1px solid #AAA; background:#FFF;}
+.dropdown ul li{background:#FFF;height:19px;font:400 12px/19px Arial, Helvetica, sans-serif;}
+.dropdown ul li.over{background:#369; color:#FFF;}
+
