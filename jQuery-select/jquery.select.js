@@ -13,11 +13,11 @@
       return this.each(function(i, obj){
         var selectId = (this.name || this.id) + '__jQSelect' + i || '__jQSelect' + i;
 
-        if (obj.style.display != 'none' 
+        if (obj.style.display != 'none'
             && $(this).parents()[0].id.indexOf('__jQSelect') < 0)
         {
             var tabindex = this.tabIndex||0;
-            $(this).before("<div class='dropdown' id=" + selectId 
+            $(this).before("<div class='dropdown' id=" + selectId
                 + ' tabIndex=' + tabindex + '></div>').prependTo($('#' + selectId));
             var selectZindex = $(this).css('z-index');
             var selectIndex  = $('#' + selectId + ' option').index($('#' + selectId + ' option:selected')[0]);
@@ -36,18 +36,18 @@
                 selectWidth += 20;
             }
             dropdown_h4.css({width: selectWidth});
-            
+
             var selectUlwidth = selectWidth + parseInt(dropdown_h4.css('padding-left')) + parseInt(dropdown_h4.css("padding-right"));
             var dropdown_ul = $('#' + selectId + ' ul');
             dropdown_ul.css({width: selectUlwidth + 'px'});
             $('#' + selectId + ' select').hide();
-            
+
             $('#' + selectId + ' div').hover(function(){
                 dropdown_h4.addClass("over");
             },function(){
                 dropdown_h4.removeClass("over");
             });
-        
+
             $('#' + selectId)
             .bind('focus', function(){
                 $.fn.clearSelectMenu(selectId, selectZindex);
@@ -65,7 +65,7 @@
                     {
                         $('.dropdown').css({'position': 'relative', 'z-index': '0'});
                     }
-                    
+
                     $('#' + selectId).css({'position': 'relative', 'z-index': '999'});
                     $.fn.setSelectValue(selectId);
 
@@ -73,16 +73,16 @@
                     var windowspace = ($(window).scrollTop() + document.documentElement.clientHeight) - $(this).offset().top;
                     var ulspace = $('#' + selectId + ' ul').outerHeight(true);
                     var windowspace2 = $(this).offset().top - $(window).scrollTop() - ulspace;
-                    windowspace < ulspace && windowspace2 > 0 
-                        ? dropdown_ul.css({top:-ulspace}) 
+                    windowspace < ulspace && windowspace2 > 0
+                        ? dropdown_ul.css({top:-ulspace})
                             : dropdown_ul.css({top: dropdown_h4.outerHeight(true)});
                     $(window).scroll(function(){
-                        windowspace = ($(window).scrollTop() 
+                        windowspace = ($(window).scrollTop()
                             + document.documentElement.clientHeight) - $('#' + selectId).offset().top;
-                        windowspace < ulspace 
+                        windowspace < ulspace
                             ? dropdown_ul.css({top:-ulspace})
                                 : dropdown_ul.css({top: dropdown_h4.outerHeight(true)});
-                    });    
+                    });
 
                     var dropdown_li = $('#' + selectId + ' li');
                     dropdown_li.click(function(e){
@@ -204,9 +204,9 @@
             {
                 selectWidth = selectWidth + 15
             }
-            
+
             dropdown_h4.css({width: selectWidth});
-            var selectUlwidth = selectWidth + parseInt(dropdown_h4.css('padding-left')) 
+            var selectUlwidth = selectWidth + parseInt(dropdown_h4.css('padding-left'))
                 + parseInt(dropdown_h4.css('padding-right'));
             dropdown_ul.css({width: selectUlwidth + 'px'});
             if(this.style.display != 'none'){
@@ -252,7 +252,7 @@
                 this.addEventListener( types[--i], handler, false );
         else
             this.onmousewheel = handler;
-    },    
+    },
     teardown: function() {
         if ( this.removeEventListener )
             for ( var i=types.length; i; )
@@ -266,7 +266,7 @@
     mousewheel: function(fn) {
         return fn ? this.bind('mousewheel', fn) : this.trigger('mousewheel');
     },
-    
+
     unmousewheel: function(fn) {
         return this.unbind('mousewheel', fn);
     }
@@ -275,7 +275,7 @@
   function handler(event) {
     var args = [].slice.call( arguments, 1 ), delta = 0, returnValue = true;
     event = $.event.fix(event || window.event);
-    event.type = 'mousewheel';    
+    event.type = 'mousewheel';
     if ( event.wheelDelta ) delta = event.wheelDelta/120;
     if ( event.detail     ) delta = -event.detail/3;
     args.unshift(event, delta);
