@@ -9,7 +9,7 @@
 
 (function($){
   $.fn.extend({
-    sSelect: function(callback) {
+    sSelect: function() {
       return this.each(function(i, obj){
         var selectId = (this.name || this.id) + '__jQSelect' + i || '__jQSelect' + i;
 
