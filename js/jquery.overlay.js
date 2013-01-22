@@ -20,16 +20,16 @@
                 show(create(this_obj, opts), opts);
             }
         });
-    
-    }; 
+
+    };
     // end overlay
 
   /*--------------------------------------------------*
    * helper functions
    *--------------------------------------------------*/
-  
+
   /**
-   * Creates the overlay element, applies the styles as specified in the 
+   * Creates the overlay element, applies the styles as specified in the
    * options, and sets up the event handlers for closing the overlay.
    *
    * opts The plugin's array options.
@@ -37,7 +37,7 @@
   function create($src, opts) {
     // prevents adding multiple overlays to a container
     $src.addClass('overlay-trigger');
-  
+
     // create the overlay and add it to the dom
     var overlay = $('<div></div>')
     .addClass('overlay')
@@ -61,23 +61,23 @@
                 $src.removeClass('overlay-trigger');
             });
         } // end if
-        
+
         return false;
     });
 
     // if specified, apply the gloss
     if(opts.glossy) {
-      applyGloss(opts, overlay);     
+      applyGloss(opts, overlay);
     } // end if
-    
-        
+
+
     // finally add the overlay
     $(opts.container).append(overlay);
-   
+
     return overlay;
-    
+
   } // end createOverlay
-  
+
   /**
    * Displays the overlay using the effect specified in the options. Optionally
    * triggers the onShow callback function.
@@ -86,23 +86,23 @@
    */
   function show(overlay, opts) {
     switch(opts.effect.toString().toLowerCase()) {
-    
+
       case 'fade':
         $(overlay).fadeIn('fast', opts.onShow);
         break;
-      
+
       case 'slide':
         $(overlay).slideDown('fast', opts.onShow);
         break;
-        
+
       default:
         $(overlay).show(opts.onShow);
         break;
     } // end switch/case
-    
+
     $(opts.container).css('overflow', 'hidden');
   } // end show
-  
+
   /**
    * Hides the overlay using the effect specified in the options. Optionally
    * triggers the onHide callback function.
@@ -111,21 +111,21 @@
    */
   function close(overlay, opts) {
     switch(opts.effect.toString().toLowerCase()) {
-        
+
       case 'fade':
         $(overlay).fadeOut('fast', function() {
           opts.onHide();
           $(this).remove();
         });
         break;
-            
+
       case 'slide':
         $(overlay).slideUp('fast', function() {
           opts.onHide();
           $(this).remove();
         });
         break;
-            
+
       default:
         $(overlay).hide();
         if(opts.onHide) {
@@ -133,12 +133,12 @@
         }
         $(overlay).remove();
         break;
-            
+
     } // end switch/case
-    
+
     $(opts.container).css('overflow', 'auto');
   } // end close
-  
+
     /**
     * Adds the gloss effect to the overlay.
     *
@@ -158,16 +158,16 @@
             webkitTransform: 'rotate(45deg)',
             oTransform: 'rotate(45deg)'
         });
-      
+
         // at the time of development, mozTransform didn't work with >= jQuery 1.5
         if($.browser.mozilla) {
             $(gloss).css('-moz-transform', 'rotate(45deg)');
         } // end if
-     
+
         $(overlay).append(gloss);
-    
+
     } // end applyGloss
- 
+
     /*--------------------------------------------------*
      * default settings
      *--------------------------------------------------*
